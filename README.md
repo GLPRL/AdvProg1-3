@@ -1,4 +1,4 @@
-# AdvProg1-3: KNN - K-Nearest Neighbors
+# AdvProg1-3: KNN: K-Nearest Neighbors
 Third task for Advanced Programming 1 course
 
 Authors:
