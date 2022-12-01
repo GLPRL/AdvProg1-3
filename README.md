@@ -1,4 +1,4 @@
-# AdvProg1-2
+# AdvProg1-3
 Second task for Advanced Programming 1 course
 
 Authors:
