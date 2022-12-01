@@ -73,4 +73,4 @@ Afterwards, we find the K closest neighbors - their attributes are the closest t
 Lastly, we classify our input vector according to the type we see has the most neighbors to our vector,
 and print our decision to the user.
 
-Images and some explanations sourced from Wikipedia pages of the distance formulas
+###### Images and some explanations sourced from Wikipedia pages of the distance formulas
