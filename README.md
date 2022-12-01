@@ -6,6 +6,7 @@ Gal Pearl,
 Dekel Schreiber
 
 In this task, there will be five algorithms for calculating vectors, in different approaches.
+For example:
 We will receive a vector of data of some flower-type, and find it's closest neighbor, with the least difference between their
 attributes:
 1) Cup leaves width
@@ -13,6 +14,8 @@ attributes:
 3) Petals width
 4) Petals length
 We will find the closest neighbors and classify the input vectors as the flower type.
+
+Comparisons can be made between each family: Irises, Wines, Beans, etc etc.
 
 **Compliation Instructions:**
 # REQUIRES UPDATE
