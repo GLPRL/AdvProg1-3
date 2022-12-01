@@ -18,7 +18,7 @@ cd AdvProg1-3
 ```
 And compile:
 
-##REQUIRES UPDATE
+#REQUIRES UPDATE
 
 
 Due to the new password-less feature on Github, you can also clone it via the Repo page (Code -> Download ZIP), get into the folder and then
