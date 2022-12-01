@@ -1,4 +1,4 @@
-# AdvProg1-3
+# AdvProg1-3: KNN - K-Nearest Neighbors
 Third task for Advanced Programming 1 course
 
 Authors:
@@ -6,40 +6,25 @@ Gal Pearl,
 Dekel Schreiber
 
 In this task, there will be five algorithms for calculating vectors, in different approaches.
+We will receive a vector of data of some flower-type, and find it's closest neighbor, with the least difference between their
+attributes:
+1) Cup leaves width
+2) Cup leaves length
+3) Petals width
+4) Petals length
+We will find the closest neighbors and classify the input vectors as the flower type.
 
 **Compliation Instructions:**
-First, clone to repository, with
-```
-git clone https://github.com/GLPRL/AdvProg1-3
-```
-Then, head into the directory with
-```
-cd AdvProg1-3
-```
-And compile:
-
-#REQUIRES UPDATE
-
-
-Due to the new password-less feature on Github, you can also clone it via the Repo page (Code -> Download ZIP), get into the folder and then
-run the usual commands
-```
-g++ MainDistance.cpp Algorithms.cpp -std=c++11
-./a.out
-```
+# REQUIRES UPDATE
 
 ## General implementation details
 
 In this project, we created a Main file, which will handle all the basic requirements -
-Building the vectors according to the user's input, and maintaining the order of execution and printing the results of the different algorithms.
+Building the vectors according to the user's input as command line arguements, 
 
 The algorithms implementation reside in Algorithms.cpp source file. There is also a header file Algorithms.h for this source file which the main includes in order to have access to the algorithms.
 
-The  Algorithms are implemented in accordance to the guidlines that are listed below.
-
-Note on Minkowski Distance  - As for P: The formula uses P=1 or P=2, which corresponds to the Manhattan and Euclidean formulas, respectively.
-In this task, we take P=2 only, as stated by TA. So eventually, it'll run Euclidean formula.
-   
+The Algorithms are implemented in accordance to the guidlines that are listed below.
 
 List of Algorithms:
 
