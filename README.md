@@ -65,5 +65,11 @@ List of Algorithms:
 
       As for P: The formula uses P=1 or P=2, which corresponds to the Manhattan and Euclidean formulas, respectively.
       In this task, we take P=2 only (as stated by TA, We can choose any parameter P). So eventually, it'll run Euclidean formula.
+      
+### Classification:
+We receive some vector of some size, and calculate it's differences between all the known vectors.
+Afterwards, we find the K closest neighbors - their attributes are the closest to our data vector.
+Lastly, we classify our input vector according to the type we see has the most neighbors to our vector,
+and print our decision to the user.
 
 Images and some explanations sourced from Wikipedia pages of the distance formulas
