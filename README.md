@@ -1,5 +1,5 @@
 # AdvProg1-3
-Second task for Advanced Programming 1 course
+Third task for Advanced Programming 1 course
 
 Authors:
 Gal Pearl,
@@ -10,20 +10,15 @@ In this task, there will be five algorithms for calculating vectors, in differen
 **Compliation Instructions:**
 First, clone to repository, with
 ```
-git clone https://github.com/GLPRL/AdvProg1-2
+git clone https://github.com/GLPRL/AdvProg1-3
 ```
 Then, head into the directory with
 ```
-cd AdvProg1-2
+cd AdvProg1-3
 ```
 And compile:
-```
-g++ MainDistance.cpp Algorithms.cpp -std=c++11
-```
-Run with the default file:
-```
-./a.out
-```
+#REQUIRES UPDATE
+
 
 Due to the new password-less feature on Github, you can also clone it via the Repo page (Code -> Download ZIP), get into the folder and then
 run the usual commands
