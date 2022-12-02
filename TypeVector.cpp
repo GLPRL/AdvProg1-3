@@ -46,6 +46,10 @@ public:
         return type;
     }
 
+    vector<double> getVector() {
+        return v;
+    }
+
     bool operator<(TypeVector v) {
         return distance < v.getDistance();
     }
