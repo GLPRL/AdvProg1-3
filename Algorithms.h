@@ -12,7 +12,7 @@ using namespace std;
 #include <string.h>
 #include <ios>
 #include <fstream>
-
+#include <sstream>
 double minkowski(vector<double> v1, vector<double> v2);
 double canberra(vector<double> v1, vector<double> v2);
 double euclidean(vector<double> v1, vector<double> v2);

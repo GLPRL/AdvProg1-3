@@ -1,6 +1,7 @@
 /**
  Receives two vectors from the user and calculates various types of distances between them.
 */
+
 #include "Algorithms.h"
 
 using namespace std;
@@ -47,9 +48,25 @@ vector<double> readVector() {
  * @param k Amount of items to compare.
  * @param v Vector to compare with the CSV file.
  */
-void kNearestNeighbors(void *alg, int k, vector<double> v, char *filename) {
-    ifstream fin;
+void kNearestNeighbors(double (*alg)(vector<double>, vector<double>), int k, vector<double> v, char *filename) {
+    fstream fin;
     fin.open(filename, ios::in);
+    vector<string> row;
+    string line, word, tmp;
+    if (fin.is_open()) {
+        while (fin >> tmp) {                                             //Read from file
+            row.clear();                                                 //Cleaning the row data before data is inserted
+            getline(fin, line);
+            stringstream s(line);
+            while (getline(fin, line, ',')) {               //Read single line from CSV file
+                row.push_back(word);
+            }                                                            //After reading a single line, process the data
+
+        }
+    } else {
+        perror("No such file or directory");
+        exit(1);
+    }
 }
 /**
  * Main function. We receive several command line arguments: 4 in total
@@ -60,11 +77,15 @@ void kNearestNeighbors(void *alg, int k, vector<double> v, char *filename) {
  * @return code 0 if works as expected.
  */
 int main(int argc, char *argv[]) {
+    if (argc != 4) {
+        perror("Not enough command line arguments.");
+        return -1;
+    }
     int k = stoi(argv[1]);
     vector<double> v = readVector();
     //Need to add an IF statement. Send alg as argument to kNearestNeighbors
     if (strcmp(argv[3], "AUC") == 0) {                                                        //User chose Euclidean Alg
-
+        kNearestNeighbors(euclidean, k, v, argv[2]);
     }
     if (strcmp(argv[3], "MAN") == 0) {                                                        //User chose Manhattan Alg
 
@@ -78,45 +99,6 @@ int main(int argc, char *argv[]) {
     if (strcmp(argv[3], "MIN") == 0) {                                                        //User chose Minkowski Alg
 
     }
-    //I will use the next line to invoke kNearestNeighbors, with respective algorithm/function
-    //kNearestNeighbors(, k, v, argv[2]);
-    /**
-    if (v1.size() != v2.size()) {
-        cout << "Error: Vectors are not the same size" << endl;
-        exit(-2);
-    }
-     **/
-
-    //Calculation according to selected algorithm.
-    /**
-    if (strcmp(argv[3],"AUC")) {
-        cout.precision(5);
-        cout << euclidean(v1, v2) << endl;
-        return 0;
-    }
-    if (strcmp(argv[3],"MAN")) {
-        cout.precision(1);
-        cout << fixed << manhattan(v1, v2) << endl;
-        return 0;
-    }
-    if (strcmp(argv[3],"CHB")) {
-        cout.precision(1);
-        cout << fixed << chebyshev(v1, v2) << endl;
-        return 0;
-    }
-    if (strcmp(argv[3],"CAN")) {
-        cout.precision(1);
-        cout << fixed << canberra(v1, v2) << endl;
-        return 0;
-
-    }
-    if (strcmp(argv[3],"MIN")) {
-        cout.precision(5);
-        cout.unsetf(std::ios_base::floatfield);
-        cout << minkowski(v1, v2) << endl;
-        return 0;
-    }
-    cout << "No valid algorithm inserted" << endl;
+    perror("No valid algorithm inserted");
     return 1;
-     **/
 }
