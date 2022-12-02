@@ -1,6 +1,7 @@
 /**
  Receives two vectors from the user and calculates various types of distances between them.
 */
+
 #include "Algorithms.h"
 
 using namespace std;
@@ -37,26 +38,51 @@ vector<double> readVector() {
     return v;
 }
 /**
- * Main function. Summons the vector builders, checks if they are valid, and distance algorithms.
+ * Open a CSV file here. afterwards, we read each line for a new, temp vector,
+ * compare the diff using our provided algorithm. If the diff is less than our largest
+ * difference, then we replace the old one with the new one. We compare the diff with K differences
+ * as requested.
+ * After passing over all the items in the CSV, we count each type, and choose the type we had the most
+ * occurrences of.
+ * @param alg Distance algorithms to use
+ * @param k Amount of items to compare.
+ * @param v Vector to compare with the CSV file.
+ */
+void kNearestNeighbors(string alg, int k, vector<double> v, char *filename) {
+    fstream fin;
+    //vector<DiffandType> neighbor;
+    //we need to select the algorithm according to string.
+    fin.open(filename, ios::in);
+    vector<string> row;
+    string line, word, tmp;
+    if (fin.is_open()) {
+        while (fin >> tmp) {                                             //Read from file
+            row.clear();                                                 //Cleaning the row data before data is inserted
+            getline(fin, line);
+            stringstream s(line);
+            while (getline(fin, line, ',')) {               //Read single line from CSV file
+                row.push_back(word);
+            }                                                            //After reading a single line, process the data
+        }
+    } else {
+        perror("No such file or directory");
+        exit(1);
+    }
+}
+/**
+ * Main function. We receive several command line arguments: 4 in total
+ * First: some int K: number of neighbors. K is positive integer
+ * Second: some file with suffix .csv , with data of the vectors.
+ * We will read the data from each line, which will be a single flower.
+ * Third: Our method of calculation. AUC, MAN, CHB, CAN, MIN for each of the algorithms.
  * @return code 0 if works as expected.
  */
-int main() {
-    cout << "Please enter first vector" << endl;
-    vector<double> v1 = readVector();
-    cout << "Please enter second vector" << endl;
-    vector<double> v2 = readVector();
-    if (v1.size() != v2.size()) {
-        cout << "Error: Vectors are not the same size" << endl;
-        exit(-2);
+int main(int argc, char *argv[]) {
+    if (argc != 4) {
+        perror("Not enough command line arguments.");
+        return -1;
     }
-    cout.precision(5);
-    cout << euclidean(v1, v2) << endl;
-    cout.precision(1);
-    cout << fixed << manhattan(v1, v2) << endl;
-    cout << fixed << chebyshev(v1, v2) << endl;
-    cout << fixed << canberra(v1, v2) << endl;
-    cout.precision(5);
-    cout.unsetf(std::ios_base::floatfield);
-    cout << minkowski(v1, v2) << endl;
-    return 0;
+    int k = stoi(argv[1]);
+    vector<double> v = readVector();
+    kNearestNeighbors(argv[3], k, v, argv[2]);
 }
