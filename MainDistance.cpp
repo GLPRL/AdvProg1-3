@@ -48,9 +48,10 @@ vector<double> readVector() {
  * @param k Amount of items to compare.
  * @param v Vector to compare with the CSV file.
  */
-void kNearestNeighbors(double (*alg)(vector<double>, vector<double>), int k, vector<double> v, char *filename) {
+void kNearestNeighbors(string alg, int k, vector<double> v, char *filename) {
     fstream fin;
     //vector<DiffandType> neighbor;
+    //we need to select the algorithm according to string.
     fin.open(filename, ios::in);
     vector<string> row;
     string line, word, tmp;
@@ -84,22 +85,5 @@ int main(int argc, char *argv[]) {
     }
     int k = stoi(argv[1]);
     vector<double> v = readVector();
-    //Need to add an IF statement. Send alg as argument to kNearestNeighbors
-    if (strcmp(argv[3], "AUC") == 0) {                                                        //User chose Euclidean Alg
-        kNearestNeighbors(euclidean, k, v, argv[2]);
-    }
-    if (strcmp(argv[3], "MAN") == 0) {                                                        //User chose Manhattan Alg
-
-    }
-    if (strcmp(argv[3], "CHB") == 0) {                                                        //User chose Chebyshev Alg
-
-    }
-    if (strcmp(argv[3], "CAN") == 0) {                                                        //User chose Canberra Alg
-
-    }
-    if (strcmp(argv[3], "MIN") == 0) {                                                        //User chose Minkowski Alg
-
-    }
-    perror("No valid algorithm inserted");
-    return 1;
+    kNearestNeighbors(argv[3], k, v, argv[2]);
 }
