@@ -10,4 +10,5 @@ add_executable(AdvProg1_3
         Algorithms.h
         MainDistance.cpp
         TypeVector.cpp
-        Knn.cpp)
+        TypeVector.h
+        )

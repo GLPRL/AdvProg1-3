@@ -13,6 +13,10 @@ using namespace std;
 #include <ios>
 #include <fstream>
 #include <sstream>
+#include "TypeVector.h"
+#include <algorithm>
+#include <map>
+string knnAlgo(vector<TypeVector> vectorArray, int k, vector<string> typeNames);
 double minkowski(vector<double> v1, vector<double> v2);
 double canberra(vector<double> v1, vector<double> v2);
 double euclidean(vector<double> v1, vector<double> v2);

@@ -5,20 +5,13 @@
  and a distance.
 */
 #include "Algorithms.h"
-
+#include "TypeVector.h"
 using namespace std;
-
-class TypeVector {
-    vector<double> v;
-    string type;
-    double distance;
-
-public:
     /**
     calculates distance between this vector and another vector.
      does distance calculations in accordance to received string
     */
-    void calculateDistance(vector<double> v1, string distanceType) {
+    void TypeVector::calculateDistance(vector<double> v1, string distanceType) {
         if (distanceType.compare("AUC") == 0) {
             distance = euclidean(v, v1);
         } else if (distanceType.compare("MAN") == 0) {
@@ -33,24 +26,23 @@ public:
 
     }
 
-    TypeVector(vector<double> v, string type) {
+TypeVector::TypeVector(vector<double> v, string type) {
         this->type = type;
         this->v = v;
     }
 
-    double getDistance() {
+    double TypeVector::getDistance() {
         return distance;
     }
 
-    string getType() {
+    string TypeVector::getType() {
         return type;
     }
 
-    vector<double> getVector() {
+    vector<double> TypeVector::getVector() {
         return v;
     }
 
-    bool operator<(TypeVector v) {
+    bool  TypeVector::operator<(TypeVector v) {
         return distance < v.getDistance();
     }
-};
