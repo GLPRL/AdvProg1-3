@@ -63,7 +63,6 @@ void kNearestNeighbors(string alg, int k, vector<double> v, char *filename) {
             while (getline(fin, line, ',')) {               //Read single line from CSV file
                 row.push_back(word);
             }                                                            //After reading a single line, process the data
-
         }
     } else {
         perror("No such file or directory");
