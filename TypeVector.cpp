@@ -43,6 +43,6 @@ TypeVector::TypeVector(vector<double> v, string type) {
         return v;
     }
 
-    bool  TypeVector::operator<(TypeVector v) {
+    bool  TypeVector::operator<(TypeVector v) const {
         return distance < v.getDistance();
     }

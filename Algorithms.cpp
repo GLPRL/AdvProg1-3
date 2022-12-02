@@ -1,5 +1,6 @@
 
 #include "Algorithms.h"
+#include "TypeVector.h"
 /**
  * Euclidean Distance algorithm. Prints the distance between two vectors,
  * With precision of 17 digits to the right of the decimal point.
@@ -90,7 +91,7 @@ string knnAlgo(vector<TypeVector> vectorArray, int k, vector<string> typeNames) 
     for (int i = 0; i < typeNames.size(); i++) {
         names.insert(pair<string, int>(typeNames[i], 0));
     }
-    sort(vectorArray.begin(), vectorArray.end());
+     sort(vectorArray.begin(), vectorArray.end());
     for (int i = 0; i < k; i++) {
         names.at(vectorArray[i].getType())++;
     }

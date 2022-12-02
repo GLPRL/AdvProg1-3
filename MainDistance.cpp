@@ -3,7 +3,6 @@
 */
 
 #include "Algorithms.h"
-#include "TypeVector.h"
 #include <algorithm>
 #include <map>
 
