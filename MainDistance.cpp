@@ -50,6 +50,7 @@ vector<double> readVector() {
  */
 void kNearestNeighbors(double (*alg)(vector<double>, vector<double>), int k, vector<double> v, char *filename) {
     fstream fin;
+    //vector<DiffandType> neighbor;
     fin.open(filename, ios::in);
     vector<string> row;
     string line, word, tmp;
