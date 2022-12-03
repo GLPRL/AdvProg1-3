@@ -18,7 +18,30 @@ We will find the closest neighbors and classify the input vectors as the flower.
 Comparisons can be made between each family: Irises, Wines, Beans, etc etc.
 
 **Compliation Instructions:**
-# REQUIRES UPDATE
+First, clone/download zip of the repository, 
+cloning:
+'''
+git clone https://github.com/GLPRL/AdvProg1-3
+'''
+(ZIP requires unpacking, use your preffered method)
+Among all the files, there's a makefile for using make:
+'''
+make
+'''
+Then, the output will be a.out. Now you can run it:
+'''
+./a.out <Some integer for K> <file.csv> <ALG>
+'''
+Instruction for fillers (Any <>):
+- <K> must be a natural number (K>0). We will check if it is valid.
+- <file.csv> is required to be in the same directory with project files/a.out . We will check for this requirement.
+- <ALG> must be one of the following, resepectively to the algorithms we implemented:
+   1) AUC for Euclidan
+   2) MAN for Manhattan
+   3) CHB for Chebyshev
+   4) CAN for Canberra
+   5) MIN for Minkowski
+ The program will check if the parameters are valid.
 
 ## General implementation details
 ### Distance Algorithms
