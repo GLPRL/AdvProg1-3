@@ -1,15 +1,16 @@
 /**
  Receives two vectors from the user and calculates various types of distances between them.
-*/
+**/
 
 #include "Algorithms.h"
 #include <algorithm>
-#include <map>
 
 /**
  * Checks for name duplications.
+ * @param name string to compare duplication with
+ * @param tv comparing with TypeVector's types attribute
  * @return status if duplicate. 0 if is duplicate, 1 otherwise.
- */
+**/
 using namespace std;
 int isDuplicate(string name, vector<TypeVector> tv) {
     for (int i=0; i < tv.size(); i++) {
@@ -23,7 +24,7 @@ int isDuplicate(string name, vector<TypeVector> tv) {
  * Getting all the names, disregarding duplicates.
  * @param tv TypeVector array to fetch names from.
  * @return a names vector.
- */
+**/
 vector<string> getAllNames(vector<TypeVector> tv) {
     vector<string> names;
     int flag = 0;
@@ -40,8 +41,8 @@ vector<string> getAllNames(vector<TypeVector> tv) {
  * Checks if the alg of choosing is valid.
  * return 0 if not, otherwise 1.
  * @param alg algorithm of choosing
- * @return t/f if the input of algorithm of choosing is correct
- */
+ * @return T/F if the input of algorithm of choosing is correct
+**/
 int validateAlg(string alg) {
     if (alg.compare("AUC") == 0) {
         return 1;
@@ -61,9 +62,9 @@ int validateAlg(string alg) {
     return 0;
 }
 /**
- Reads a vector from the user in accordance to the ex1 instructions.
- Prints an error if the input is not as expected.
-*/
+ * Reads a vector from the user in accordance to the ex1 instructions.
+ * Prints an error if the input is not as expected.
+**/
 vector<double> readVector() {
     string lin;
     getline(cin, lin);
@@ -99,7 +100,7 @@ vector<double> readVector() {
  * @param v User-inputted vector.
  * @param alg Our algorithm of calculation
  * @return a new TypeVector item, inserted into an array of this type.
- */
+**/
 TypeVector aggregate(vector<string> vectorsString, vector<double> v, string alg) {
     vector<double> vectors;
     for(int i = 0; i < vectorsString.size() - 1; i++) {       //Inserts all the numbers into a new vector of type double
@@ -116,7 +117,7 @@ TypeVector aggregate(vector<string> vectorsString, vector<double> v, string alg)
  * @param alg Distance algorithms to use
  * @param k Amount of items to compare.
  * @param v Vector to compare with the CSV file.
- */
+**/
 vector<TypeVector> readData(string alg, vector<double> v, char *filename) {
     fstream fin;
     string line, word, tmp;
@@ -153,7 +154,7 @@ vector<TypeVector> readData(string alg, vector<double> v, char *filename) {
  * We will read the data from each line, which will be a single flower.
  * Third: Our method of calculation. AUC, MAN, CHB, CAN, MIN for each of the algorithms.
  * @return code 0 if works as expected.
- */
+**/
 int main(int argc, char *argv[]) {
     if (argc != 4) {                                                //If we don't have enough cmd line args
         perror("Not enough command line arguments.");

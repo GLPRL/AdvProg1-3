@@ -6,6 +6,7 @@
  * With precision of 17 digits to the right of the decimal point.
  * @param v1 First vector.
  * @param v2 Second vector.
+ * @return the distance between v1 and v2.
  */
  double euclidean(vector<double> v1, vector<double> v2) {
     vector<double> dist;
@@ -28,6 +29,7 @@
  * over the difference of pi and qi, represented here as v1 and v2.
  * @param v1 First vector.
  * @param v2 Second vector.
+ * @return the distance between v1 and v2.
  */
 double minkowski(vector<double> v1, vector<double> v2) {
     double r = euclidean(v1, v2);
@@ -39,6 +41,7 @@ double minkowski(vector<double> v1, vector<double> v2) {
  * With precision of 1 digit to the right of the decimal point.
  * @param v1 First vector.
  * @param v2 Second vector.
+ * @return the distance between v1 and v2.
  */
 double canberra(vector<double> v1, vector<double> v2) {
     vector<double> dist;
@@ -59,6 +62,9 @@ double canberra(vector<double> v1, vector<double> v2) {
 /**
  * receives 2 vectors.
  * calculates their Manhattan distance and prints it.
+ * @param v1 first vector.
+ * @param v2 second vector.
+ * @return the distance between v1 and v2.
  */
 double manhattan(vector<double> v1, vector<double> v2) {
     double sum = 0;
@@ -70,8 +76,11 @@ double manhattan(vector<double> v1, vector<double> v2) {
 }
 
 /**
- receives 2 vectors.
- calculates their Chebyshev distance, and prints it.
+ * receives 2 vectors.
+ * calculates their Chebyshev distance, and prints it.
+ * @param v1 first vector.
+ * @param v2 second vector.
+ * @return the distance between v1 and v2.
  */
 double chebyshev(vector<double> v1, vector<double> v2) {
     double max = 0;
@@ -85,6 +94,14 @@ double chebyshev(vector<double> v1, vector<double> v2) {
     }
     return max;
 }
+/**
+ * K-Closest Neighbors algorithm. We find the K closest distances from our source - the user input,
+ * and find the most occurrences of a single type item.
+ * @param vectorArray TypeVectors to find the closest K of them.
+ * @param k Number of neighbors to find
+ * @param typeNames Strings describing the TypeVectors
+ * @return The closest item type to user's input.
+ */
 string knnAlgo(vector<TypeVector> vectorArray, int k, vector<string> typeNames) {
     vector<TypeVector> neighbours;
     map<string, int> names;
