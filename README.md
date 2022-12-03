@@ -94,6 +94,12 @@ List of Algorithms:
       As for P: The formula uses P=1 or P=2, which corresponds to the Manhattan and Euclidean formulas, respectively.
       In this task, we take P=2 only (as stated by TA, We can choose any parameter P). So eventually, it'll run Euclidean formula.
       
+### Object
+We introduce a new object: TypeVector.
+It contains three field:
+   - Vector of double type numbers. Stores values of location in some dimention
+   - String, describing the type of the vector. Ex.: Our vector is a type of flower, "iris-versicolor". So, "iris-versicolor" will be stored.
+   - Distance of type double. We will store the distance of the vector with a given user vector, according to algorithm of their choosing.
 ### Classification
 We receive some vector of some size, and calculate it's differences between all the known vectors.
 Afterwards, we find the K closest neighbors - their attributes are the closest to our data vector.
