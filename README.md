@@ -17,7 +17,7 @@ We will find the closest neighbors and classify the input vectors as the flower.
 
 Comparisons can be made between each family: Irises, Wines, Beans, etc etc.
 
-**Compliation Instructions:**
+### Compliation Instructions:
 First, clone/download zip of the repository, 
 cloning:
 ```
