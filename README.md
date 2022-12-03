@@ -20,26 +20,21 @@ Comparisons can be made between each family: Irises, Wines, Beans, etc etc.
 **Compliation Instructions:**
 First, clone/download zip of the repository, 
 cloning:
-
-'''
-
+```
 git clone https://github.com/GLPRL/AdvProg1-3
-
 '''
+
 (ZIP requires unpacking, use your preffered method)
 Among all the files, there's a makefile for using make:
 
 '''
-
 make
-
 '''
+
 Then, the output will be a.out. Now you can run it:
 
 '''
-
 ./a.out <Some integer for K> <file.csv> <ALG>
-   
 '''
    
 Instruction for fillers (Any <>):
