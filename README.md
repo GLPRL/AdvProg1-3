@@ -94,7 +94,7 @@ List of Algorithms:
       As for P: The formula uses P=1 or P=2, which corresponds to the Manhattan and Euclidean formulas, respectively.
       In this task, we take P=2 only (as stated by TA, We can choose any parameter P). So eventually, it'll run Euclidean formula.
       
-### Object
+### TypeVector
 We introduce a new object: TypeVector.
 It contains three field:
    - Vector of double type numbers. Stores values of location in some dimention
