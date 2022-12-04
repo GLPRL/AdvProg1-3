@@ -131,7 +131,7 @@ vector<TypeVector> readData(string alg, vector<double> v, char *filename) {
             vectors.clear();                                             //Cleaning the row data before data is inserted
             getline(fin, line);
             stringstream s(line);
-            while (getline(fin, line, ',')) {              //Read single line from CSV file into string arr
+            while (getline(s, line, ',')) {              //Read single line from CSV file into string arr
                 vectorsString.push_back(word);
             }
             if (vectorsString.size() - 1 != v.size()) {
@@ -160,7 +160,7 @@ int main(int argc, char *argv[]) {
         perror("Not enough command line arguments.");
         return -1;
     }
-    if (validateAlg(argv[2]) != 1) {                            //Validation of correct user input for algorithm
+    if (validateAlg(argv[3]) != 1) {                            //Validation of correct user input for algorithm
         perror("Invalid algorithm name input.");
         return -1;
     }
@@ -171,8 +171,9 @@ int main(int argc, char *argv[]) {
         }
     }
     int k = stoi(argv[1]);
+    cout << "Out of main for getting vector" << endl;
     vector<double> v = readVector();
-    vector<TypeVector> tv = readData(argv[3], v, argv[2]);
+    vector<TypeVector> tv = readData(argv[4], v, argv[3]);
     vector<string> names = getAllNames(tv);
     cout << knnAlgo(tv, k, names) << endl;
     return 0;
