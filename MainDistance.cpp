@@ -36,7 +36,6 @@ vector<string> getAllNames(vector<TypeVector> tv) {
     }
     return names;
 }
-
 /**
  * Checks if the alg of choosing is valid.
  * return 0 if not, otherwise 1.
@@ -90,6 +89,7 @@ vector<double> readVector() {
         v.push_back(x);
         lin.erase(0, pos + 1);
     }
+    v.erase(v.begin());
     return v;
 }
 /**
@@ -103,8 +103,8 @@ vector<double> readVector() {
 **/
 TypeVector aggregate(vector<string> vectorsString, vector<double> v, string alg) {
     vector<double> vectors;
-    for(int i = 0; i < vectorsString.size() - 1; i++) {       //Inserts all the numbers into a new vector of type double
-        vectors[i] = stod(vectorsString[i]);
+    for(int i = 0; i < vectorsString.size() - 2; i++) {       //Inserts all the numbers into a new vector of type double
+        vectors.push_back(stod(vectorsString[i]));
     }                                                         //Item in last position in vectorsString will be the name!
     string name = vectorsString[vectorsString.size() - 1];
     TypeVector tv = TypeVector(vectors, name);                      //Create the new TypeVector and calc.
@@ -118,26 +118,25 @@ TypeVector aggregate(vector<string> vectorsString, vector<double> v, string alg)
  * @param k Amount of items to compare.
  * @param v Vector to compare with the CSV file.
 **/
-vector<TypeVector> readData(string alg, vector<double> v, char *filename) {
+vector<TypeVector> readData(string alg, vector<double> v, string filename) {
     fstream fin;
     string line, word, tmp;
     //we need to select the algorithm according to string.
     vector<TypeVector> typeVectors;
-    vector<string> vectorsString;                                        //Name of type
+    vector<string> row;                                        //Name of type
     vector<double> vectors;                                              //Vector of type
     fin.open(filename, ios::in);
     if (fin.is_open()) {
-        while (fin >> tmp) {                                             //Read from file and process.
-            vectors.clear();                                             //Cleaning the row data before data is inserted
-            getline(fin, line);
-            stringstream s(line);
-            while (getline(s, line, ',')) {              //Read single line from CSV file into string arr
-                vectorsString.push_back(word);
+        while (getline(fin, line)) {                                             //Read from file and process.
+            row.clear();                                             //Cleaning the row data before data is inserted
+            stringstream str(line);
+            while (getline(str, word, ',')) {              //Read single line from CSV file into string arr
+                row.push_back(word);
             }
-            if (vectorsString.size() - 1 != v.size()) {
+            if (row.size() - 1 != v.size()) {
                 perror("Vectors are not of same size.");
             }                                                            //Inserts the new TypeVector into an array.
-            TypeVector tVector = aggregate(vectorsString, v, alg);
+            TypeVector tVector = aggregate(row, v, alg);
             typeVectors.push_back(tVector);
         }
     } else {
@@ -171,9 +170,8 @@ int main(int argc, char *argv[]) {
         }
     }
     int k = stoi(argv[1]);
-    cout << "Out of main for getting vector" << endl;
     vector<double> v = readVector();
-    vector<TypeVector> tv = readData(argv[4], v, argv[3]);
+    vector<TypeVector> tv = readData(argv[3], v, argv[2]);
     vector<string> names = getAllNames(tv);
     cout << knnAlgo(tv, k, names) << endl;
     return 0;
