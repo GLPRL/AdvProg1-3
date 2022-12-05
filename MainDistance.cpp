@@ -103,7 +103,7 @@ vector<double> readVector() {
 **/
 TypeVector aggregate(vector<string> vectorsString, vector<double> v, string alg) {
     vector<double> vectors;
-    for(int i = 0; i < vectorsString.size() - 2; i++) {       //Inserts all the numbers into a new vector of type double
+    for(int i = 0; i < vectorsString.size() - 1; i++) {       //Inserts all the numbers into a new vector of type double
         vectors.push_back(stod(vectorsString[i]));
     }                                                         //Item in last position in vectorsString will be the name!
     string name = vectorsString[vectorsString.size() - 1];
