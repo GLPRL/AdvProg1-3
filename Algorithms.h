@@ -16,7 +16,7 @@ using namespace std;
 #include "TypeVector.h"
 #include <algorithm>
 #include <map>
-string knnAlgo(vector<TypeVector> vectorArray, int k, vector<string> typeNames);
+string knnAlgo(vector<TypeVector> vectorArray, int k, map<string, int> names);
 double minkowski(vector<double> v1, vector<double> v2);
 double canberra(vector<double> v1, vector<double> v2);
 double euclidean(vector<double> v1, vector<double> v2);

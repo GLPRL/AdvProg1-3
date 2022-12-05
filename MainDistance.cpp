@@ -25,14 +25,10 @@ int isDuplicate(string name, vector<TypeVector> tv) {
  * @param tv TypeVector array to fetch names from.
  * @return a names vector.
 **/
-vector<string> getAllNames(vector<TypeVector> tv) {
-    vector<string> names;
-    int flag = 0;
-    for (int i = 0; i < tv.size(); i++) {               //Gets all the types of the TypeVector into a vector of strings.
-        string name = tv[i].getType();
-        if (!isDuplicate(name, tv)) {
-            names.push_back(name);
-        }
+map<string, int> getAllNames(vector<TypeVector> tv) {
+    map<string, int> names;
+    for (int i = 0; i < tv.size(); i++) {
+        names.insert(pair<string, int>(tv[i].getType(), 0));
     }
     return names;
 }
@@ -172,7 +168,7 @@ int main(int argc, char *argv[]) {
     int k = stoi(argv[1]);
     vector<double> v = readVector();
     vector<TypeVector> tv = readData(argv[3], v, argv[2]);
-    vector<string> names = getAllNames(tv);
+    map<string, int> names = getAllNames(tv);
     cout << knnAlgo(tv, k, names) << endl;
     return 0;
 }

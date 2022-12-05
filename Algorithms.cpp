@@ -102,13 +102,9 @@ double chebyshev(vector<double> v1, vector<double> v2) {
  * @param typeNames Strings describing the TypeVectors
  * @return The closest item type to user's input.
  */
-string knnAlgo(vector<TypeVector> vectorArray, int k, vector<string> typeNames) {
+string knnAlgo(vector<TypeVector> vectorArray, int k, map<string, int> names) {
     vector<TypeVector> neighbours;
-    map<string, int> names;
-    for (int i = 0; i < typeNames.size(); i++) {
-        names.insert(pair<string, int>(typeNames[i], 0));
-    }
-     sort(vectorArray.begin(), vectorArray.end());
+    sort(vectorArray.begin(), vectorArray.end());
     for (int i = 0; i < k; i++) {
         names.at(vectorArray[i].getType())++;
     }
