@@ -116,7 +116,7 @@ TypeVector aggregate(vector<string> vectorsString, vector<double> v, string alg)
 **/
 vector<TypeVector> readData(string alg, vector<double> v, string filename) {
     fstream fin;
-    string line, word, tmp;
+    string line, word;
     //we need to select the algorithm according to string.
     vector<TypeVector> typeVectors;
     vector<string> row;                                        //Name of type
