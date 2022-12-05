@@ -130,14 +130,15 @@ vector<TypeVector> readData(string alg, vector<double> v, string filename) {
                 row.push_back(word);
             }
             if (row.size() - 1 != v.size()) {
-                perror("Vectors are not of same size.");
+                perror("Vectors are not of the same size.");
+                exit(-1);
             }                                                            //Inserts the new TypeVector into an array.
             TypeVector tVector = aggregate(row, v, alg);
             typeVectors.push_back(tVector);
         }
     } else {
         perror("No such file or directory");
-        exit(1);
+        exit(-1);
     }
     fin.close();
     return typeVectors;
