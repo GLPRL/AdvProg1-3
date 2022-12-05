@@ -12,14 +12,6 @@
  * @return status if duplicate. 0 if is duplicate, 1 otherwise.
 **/
 using namespace std;
-int isDuplicate(string name, vector<TypeVector> tv) {
-    for (int i=0; i < tv.size(); i++) {
-        if (tv[i].getType().compare(name) == 0) {
-            return 0;
-        }
-    }
-    return 1;
-}
 /**
  * Getting all the names, disregarding duplicates.
  * @param tv TypeVector array to fetch names from.
