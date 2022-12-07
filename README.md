@@ -31,7 +31,7 @@ make
 ```
 Then, the output will be a.out. Now you can run it:
 
-**For the program to identify the input files, they need to be in the same directory with the project files
+**For the program to identify the input files, they need to be in the same directory with the project files**
 
 ```
 ./a.out <Some integer for K> <file.csv> <ALG>
