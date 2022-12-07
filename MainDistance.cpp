@@ -159,9 +159,10 @@ int main(int argc, char *argv[]) {
         }
     }
     int k = stoi(argv[1]);
-    vector<double> v = readVector();
-    vector<TypeVector> tv = readData(argv[3], v, argv[2]);
-    map<string, int> names = getAllNames(tv);
-    cout << knnAlgo(tv, k, names) << endl;
-    return 0;
+    while (true) {
+        vector<double> v = readVector();                            //Reading input vector data
+        vector<TypeVector> tv = readData(argv[3], v, argv[2]);      //Reading data from CSV file.
+        map<string, int> names = getAllNames(tv);
+        cout << knnAlgo(tv, k, names) << endl; //Checking which vectors from csv are closest to user's vector.
+    }
 }
