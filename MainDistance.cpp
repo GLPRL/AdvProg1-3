@@ -61,8 +61,8 @@ vector<double> readVector() {
     lin = ' ' + lin + " ";
     // If there is more than one space in a row, then exit the program.
     if (lin.find("  ") != string::npos) {
-        cout << "Error: too many white spaces" << endl;
-        exit(-3);
+        vector<double> ve;
+        return ve;
     }
     vector<double> v;
     int pos = 0;
@@ -184,12 +184,15 @@ int main(int argc, char *argv[]) {
         vector<double> v = readVector();                          //Reading input vector data
         if(v.size()!=fileVectorSize){
             cout<<"Your vector size does not match the excel file, try another vector"<<endl;
+            continue;
+        } else
+        if(v.size() == 0) {
+            cout << "Too many whitespaces, try another vector" << endl;
+            continue;
         }
-        else {
-            for(int i=0;i<tv.size();i++){
-                tv[i].calculateDistance(v,argv[3]); //calculate distance for each vector in the file
-            }
-            cout << knnAlgo(tv, k, names) << endl; //Checking which vectors from csv are closest to user's vector.
+        for(int i=0;i<tv.size();i++){
+            tv[i].calculateDistance(v,argv[3]); //calculate distance for each vector in the file
         }
+        cout << knnAlgo(tv, k, names) << endl; //Checking which vectors from csv are closest to user's vector.
     }
 }
