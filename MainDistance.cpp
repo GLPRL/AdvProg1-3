@@ -59,7 +59,7 @@ vector<double> readVector() {
     string lin;
     getline(cin, lin);
     lin = ' ' + lin + " ";
-    // If there is more than one space in a row, then exit the program.
+                                                     // If there is more than one space in a row, then exit the program.
     if (lin.find("  ") != string::npos) {
         vector<double> ve;
         return ve;
@@ -68,7 +68,7 @@ vector<double> readVector() {
     int pos = 0;
     double x;
     char *e;
-    // Loop until the end of the string each time separating the spaces.
+                                                    // Loop until the end of the string each time separating the spaces.
     while ((pos = lin.find(" ")) != string::npos) {
         string sub = lin.substr(0, pos);
         x = std::strtod(sub.c_str(), &e);
@@ -94,7 +94,7 @@ vector<double> readVector() {
 TypeVector aggregate(vector <string> vectorsString, string alg) {
     vector<double> vectors;
     for (int i = 0;
-         i < vectorsString.size() - 1; i++) {       //Inserts all the numbers into a new vector of type double
+         i < vectorsString.size() - 1; i++) {                 //Inserts all the numbers into a new vector of type double
         try {
             double p=stod(vectorsString[i]);
             vectors.push_back(p);
@@ -105,7 +105,7 @@ TypeVector aggregate(vector <string> vectorsString, string alg) {
         }
     }                                                         //Item in last position in vectorsString will be the name!
     string name = vectorsString[vectorsString.size() - 1];
-    TypeVector tv = TypeVector(vectors, name);                      //Create the new TypeVector and calc.
+    TypeVector tv = TypeVector(vectors, name);                             //Create the new TypeVector and calc.
     return tv;
 }
 
@@ -119,29 +119,25 @@ TypeVector aggregate(vector <string> vectorsString, string alg) {
 vector <TypeVector> readData(string alg, int &vsize, string filename) {
     fstream fin;
     string line, word;
-    //we need to select the algorithm according to string.
+                                                                  //we need to select the algorithm according to string.
     vector <TypeVector> typeVectors;
-    vector <string> row;                                        //Name of type
-    vector<double> vectors;                                              //Vector of type
+    vector <string> row;                                                //Name of type
+    vector<double> vectors;                                            //Vector of type
     int excelVectorSize;
     int firstLine = 1;
     fin.open(filename, ios::in);
     if (fin.is_open()) {
-        while (getline(fin, line)) {                                             //Read from file and process.
-            row.clear();                                             //Cleaning the row data before data is inserted
+        while (getline(fin, line)) {                             //Read from file and process.
+            row.clear();                                                //Cleaning the row data before data is inserted
             stringstream str(line);
             while (getline(str, word, ',')) {              //Read single line from CSV file into string arr
                 row.push_back(word);
             }
-            if (firstLine) { //if reading the first line of the file
+            if (firstLine) {                                            //if reading the first line of the file
                 excelVectorSize = row.size() - 1;
                 firstLine = 0;
-            } else if (excelVectorSize != row.size() - 1) { //if there are diffrent vector sizes inside the file
-                cout << "Excel file has more than 1 vector size try another file" << endl;
-                exit(-1);
             }
-            // Inserts the new TypeVector into an array.
-            TypeVector tVector = aggregate(row, alg);
+            TypeVector tVector = aggregate(row, alg);        // Inserts the new TypeVector into an array.
             typeVectors.push_back(tVector);
         }
     } else {
@@ -191,7 +187,7 @@ int main(int argc, char *argv[]) {
             continue;
         }
         for(int i=0;i<tv.size();i++){
-            tv[i].calculateDistance(v,argv[3]); //calculate distance for each vector in the file
+            tv[i].calculateDistance(v,argv[3]);      //calculate distance for each vector in the file
         }
         cout << knnAlgo(tv, k, names) << endl; //Checking which vectors from csv are closest to user's vector.
     }
