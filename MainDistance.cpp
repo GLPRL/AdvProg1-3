@@ -59,7 +59,8 @@ vector<double> readVector() {
     string lin;
     getline(cin, lin);
     lin = ' ' + lin + " ";
-                                                     // If there is more than one space in a row, then exit the program.
+                                                     // If there is more than one space in a row, then return
+                                                     //and allow re-entry
     if (lin.find("  ") != string::npos) {
         vector<double> ve;
         return ve;
@@ -73,8 +74,8 @@ vector<double> readVector() {
         string sub = lin.substr(0, pos);
         x = std::strtod(sub.c_str(), &e);
         if (*e != '\0') {
-            cout << "Error:" << sub.c_str() << " is not a number" << endl;;
-            vector <double> verr;
+            cout << "Error:" << sub.c_str() << " is not a number" << endl;; //if cannot be converted,
+            vector <double> verr;                                           // then allow re-entry
             return verr;
         }
         v.push_back(x);
@@ -179,10 +180,6 @@ int main(int argc, char *argv[]) {
     map<string, int> names = getAllNames(tv);
     while (true) {
         vector<double> v = readVector();                          //Reading input vector data
-        if (v.size() == 0) {
-            cout << "Please enter a correct vector" << endl;
-            continue;
-        }
         if(v.size()!=fileVectorSize){
             cout<<"Your vector size does not match the excel file, try another vector"<<endl;
             continue;
