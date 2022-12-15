@@ -74,7 +74,8 @@ vector<double> readVector() {
         x = std::strtod(sub.c_str(), &e);
         if (*e != '\0') {
             cout << "Error:" << sub.c_str() << " is not a number" << endl;;
-            exit(-1);
+            vector <double> verr;
+            return verr;
         }
         v.push_back(x);
         lin.erase(0, pos + 1);
@@ -178,6 +179,10 @@ int main(int argc, char *argv[]) {
     map<string, int> names = getAllNames(tv);
     while (true) {
         vector<double> v = readVector();                          //Reading input vector data
+        if (v.size() == 0) {
+            cout << "Please enter a correct vector" << endl;
+            continue;
+        }
         if(v.size()!=fileVectorSize){
             cout<<"Your vector size does not match the excel file, try another vector"<<endl;
             continue;
